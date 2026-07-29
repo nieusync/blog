@@ -1,0 +1,33 @@
+{{!< default}}
+
+{{#is "home"}}
+    {{> hero label="Blog" title=@site.title subtitle=@site.description}}
+{{/is}}
+
+<section class="section">
+    <div class="container">
+        {{#if @site.members_enabled}}
+            <div class="layout-with-aside">
+        {{/if}}
+
+        <div>
+            {{#if posts}}
+                <div class="post-grid">
+                    {{#foreach posts}}
+                        {{> post-card}}
+                    {{/foreach}}
+                </div>
+                {{pagination}}
+            {{else}}
+                <p class="empty">Ainda não há artigos publicados.</p>
+            {{/if}}
+        </div>
+
+        {{#if @site.members_enabled}}
+            <aside class="aside">
+                {{> newsletter}}
+            </aside>
+            </div>
+        {{/if}}
+    </div>
+</section>

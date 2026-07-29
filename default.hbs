@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{meta_title}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset "css/screen.css"}}">
+    {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+
+<nav class="nav">
+    <div class="container nav-inner">
+        <a class="nav-logo" href="{{@site.url}}">
+            {{#if @site.logo}}
+                <img src="{{@site.logo}}" alt="{{@site.title}}">
+            {{else}}
+                <img src="{{asset "img/logo-nieusync.png"}}" alt="{{@site.title}}">
+            {{/if}}
+        </a>
+
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Menu">
+        <label for="nav-toggle" class="nav-burger" aria-hidden="true"><span></span><span></span><span></span></label>
+
+        <div class="nav-links">
+            {{navigation}}
+            <a class="btn btn-gradient btn-sm" href="{{@custom.site_url}}">nieusync.com</a>
+        </div>
+    </div>
+</nav>
+
+<main class="site-main">
+    {{{body}}}
+</main>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div class="footer-brand">
+            <img src="{{asset "img/logo-nieusync-white.png"}}" alt="{{@site.title}}" width="130" loading="lazy">
+            {{#if @site.description}}<p class="footer-tagline">{{@site.description}}</p>{{/if}}
+        </div>
+
+        {{#if @site.secondary_navigation}}
+            <div class="footer-col">
+                <p class="footer-col-title">Links</p>
+                {{navigation type="secondary"}}
+            </div>
+        {{/if}}
+
+        <div class="footer-col">
+            <p class="footer-col-title">Contactos</p>
+            <a class="footer-link" href="tel:+351269030096">(+351) 269 030 096</a>
+            <a class="footer-link" href="mailto:geral@nieusync.com">geral@nieusync.com</a>
+            <a class="footer-link" href="{{@custom.site_url}}">nieusync.com</a>
+        </div>
+    </div>
+
+    <div class="container footer-bottom">
+        <span>&copy; {{date format="YYYY"}} {{@site.title}}</span>
+        <a href="{{@site.url}}/rss/">RSS</a>
+    </div>
+</footer>
+
+{{ghost_foot}}
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "name": "nieusync",
+  "description": "Ghost theme matching the NIEUSYNC marketing site",
+  "version": "1.0.0",
+  "engines": {
+    "ghost": ">=5.0.0"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "NIEUSYNC",
+    "email": "geral@nieusync.com",
+    "url": "https://nieusync.com"
+  },
+  "keywords": [
+    "ghost-theme"
+  ],
+  "config": {
+    "posts_per_page": 12,
+    "image_sizes": {
+      "s": { "width": 400 },
+      "m": { "width": 800 },
+      "l": { "width": 1200 },
+      "xl": { "width": 2000 }
+    },
+    "card_assets": true,
+    "custom": {
+      "site_url": {
+        "type": "text",
+        "default": "https://nieusync.com"
+      }
+    }
+  }
+}

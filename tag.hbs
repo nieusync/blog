@@ -1,0 +1,18 @@
+{{!< default}}
+
+{{#tag}}
+    {{> hero label="Categoria" title=name subtitle=description}}
+{{/tag}}
+
+<section class="section">
+    <div class="container">
+        {{#if posts}}
+            <div class="post-grid">
+                {{#foreach posts}}{{> post-card}}{{/foreach}}
+            </div>
+            {{pagination}}
+        {{else}}
+            <p class="empty">Ainda não há artigos nesta categoria.</p>
+        {{/if}}
+    </div>
+</section>

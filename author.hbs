@@ -1,0 +1,18 @@
+{{!< default}}
+
+{{#author}}
+    {{> hero label="Autor" title=name subtitle=bio}}
+{{/author}}
+
+<section class="section">
+    <div class="container">
+        {{#if posts}}
+            <div class="post-grid">
+                {{#foreach posts}}{{> post-card}}{{/foreach}}
+            </div>
+            {{pagination}}
+        {{else}}
+            <p class="empty">Este autor ainda não publicou artigos.</p>
+        {{/if}}
+    </div>
+</section>

@@ -1,0 +1,12 @@
+{{!-- Ghost members signup; same card shell as the site's newsletter box --}}
+<div class="card newsletter">
+    <h3 class="newsletter-title">Newsletter</h3>
+    <p class="newsletter-text">Receba os novos artigos por email. Sem spam.</p>
+    <form data-members-form="signup" class="newsletter-form">
+        <label for="newsletter-email">Email</label>
+        <input id="newsletter-email" type="email" name="email" data-members-email placeholder="nome@empresa.com" required>
+        <button class="btn btn-gradient" type="submit">Subscrever</button>
+        <p class="newsletter-msg newsletter-success">Obrigado — confirme no email que lhe enviámos.</p>
+        <p class="newsletter-msg newsletter-error">Não foi possível subscrever. Verifique o email.</p>
+    </form>
+</div>
