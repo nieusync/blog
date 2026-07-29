@@ -1,0 +1,10 @@
+{{!-- Overrides Ghost's built-in navigation partial. The default one emits
+      <ul class="nav"> and <li class="nav-{{slug}}">, which collide with any
+      theme class in the .nav* namespace — hence site-nav* everywhere here. --}}
+<ul class="site-nav-list">
+    {{#foreach navigation}}
+        <li class="site-nav-item{{#if current}} is-current{{/if}}">
+            <a href="{{url absolute="true"}}">{{label}}</a>
+        </li>
+    {{/foreach}}
+</ul>

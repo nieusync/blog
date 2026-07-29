@@ -111,32 +111,34 @@ img { max-width: 100%; height: auto; }
 
 /* ── nav ────────────────────────────────────────────────────────────── */
 
-.nav {
+/* Every class here is site-nav*, never .nav*: Ghost's navigation output uses
+   .nav and .nav-{{slug}}, so a .nav rule would style the link list itself. */
+.site-nav {
     position: fixed; inset-inline: 0; top: 0; z-index: 1000;
     background: var(--white);
     border-bottom: 1px solid rgba(159, 142, 194, 0.20);
 }
-.nav-inner { display: flex; height: 72px; align-items: center; justify-content: space-between; gap: 16px; }
-.nav-logo img { display: block; height: 44px; width: auto; }
+.site-nav-inner { display: flex; height: 72px; align-items: center; justify-content: space-between; gap: 16px; }
+.site-nav-logo img { display: block; height: 44px; width: auto; }
 
-.nav-links { display: flex; align-items: center; gap: 4px; }
-.nav-links ul { display: flex; align-items: center; gap: 4px; list-style: none; }
-.nav-links li a {
+.site-nav-menu { display: flex; align-items: center; gap: 8px; }
+.site-nav-list { display: flex; align-items: center; gap: 4px; list-style: none; }
+.site-nav-item a {
     display: inline-flex; align-items: center; min-height: 44px;
     padding: 8px 14px; border-radius: 6px;
     font-size: 14px; font-weight: 700; color: var(--blue);
     transition: color 0.2s ease;
 }
-.nav-links li a:hover, .nav-links li.nav-current a { color: var(--purple); }
+.site-nav-item a:hover, .site-nav-item.is-current a { color: var(--purple); }
 
 /* ponytail: checkbox toggle, no JS in the theme at all */
-.nav-toggle, .nav-burger { display: none; }
-.nav-burger { width: 44px; height: 44px; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; }
-.nav-burger span { display: block; width: 22px; height: 2px; border-radius: 2px; background: var(--blue); }
+.site-nav-toggle, .site-nav-burger { display: none; }
+.site-nav-burger { width: 44px; height: 44px; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; }
+.site-nav-burger span { display: block; width: 22px; height: 2px; border-radius: 2px; background: var(--blue); }
 
 @media (max-width: 900px) {
-    .nav-burger { display: flex; }
-    .nav-links {
+    .site-nav-burger { display: flex; }
+    .site-nav-menu {
         position: fixed; inset: 72px 0 auto; z-index: 999;
         flex-direction: column; align-items: stretch; gap: 8px;
         padding: 20px; background: var(--white);
@@ -144,8 +146,8 @@ img { max-width: 100%; height: auto; }
         box-shadow: 0 12px 24px rgba(35, 56, 119, 0.08);
         display: none;
     }
-    .nav-links ul { flex-direction: column; align-items: stretch; gap: 2px; }
-    .nav-toggle:checked ~ .nav-links { display: flex; }
+    .site-nav-list { flex-direction: column; align-items: stretch; gap: 2px; }
+    .site-nav-toggle:checked ~ .site-nav-menu { display: flex; }
 }
 
 /* ── hero ───────────────────────────────────────────────────────────── */
@@ -315,12 +317,15 @@ form[data-members-form].loading button { opacity: 0.6; pointer-events: none; }
     font-weight: 700; font-size: 11px; letter-spacing: 0.12em;
     text-transform: uppercase; color: rgba(255, 255, 255, 0.38); margin-bottom: 14px;
 }
-.footer-col ul { list-style: none; }
-.footer-link, .footer-col li a {
-    display: block; margin-bottom: 8px; font-size: 13px; line-height: 1.4;
+/* The secondary navigation reuses partials/navigation.hbs, so undo the
+   horizontal header layout it brings with it. */
+.footer-col .site-nav-list { flex-direction: column; align-items: stretch; gap: 0; }
+.footer-link, .footer-col .site-nav-item a {
+    display: block; padding: 0; min-height: 0; margin-bottom: 8px;
+    font-size: 13px; font-weight: 400; line-height: 1.4;
     color: rgba(255, 255, 255, 0.70); transition: color 0.2s ease;
 }
-.footer-link:hover, .footer-col li a:hover { color: var(--purple); }
+.footer-link:hover, .footer-col .site-nav-item a:hover { color: var(--purple); }
 
 .footer-bottom {
     display: flex; align-items: center; justify-content: space-between; gap: 12px;

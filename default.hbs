@@ -12,9 +12,9 @@
 </head>
 <body class="{{body_class}}">
 
-<nav class="nav">
-    <div class="container nav-inner">
-        <a class="nav-logo" href="{{@site.url}}">
+<nav class="site-nav">
+    <div class="container site-nav-inner">
+        <a class="site-nav-logo" href="{{@site.url}}">
             {{#if @site.logo}}
                 <img src="{{@site.logo}}" alt="{{@site.title}}">
             {{else}}
@@ -22,10 +22,10 @@
             {{/if}}
         </a>
 
-        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Menu">
-        <label for="nav-toggle" class="nav-burger" aria-hidden="true"><span></span><span></span><span></span></label>
+        <input type="checkbox" id="site-nav-toggle" class="site-nav-toggle" aria-label="Menu">
+        <label for="site-nav-toggle" class="site-nav-burger" aria-hidden="true"><span></span><span></span><span></span></label>
 
-        <div class="nav-links">
+        <div class="site-nav-menu">
             {{navigation}}
             <a class="btn btn-gradient btn-sm" href="{{@custom.site_url}}">nieusync.com</a>
         </div>
