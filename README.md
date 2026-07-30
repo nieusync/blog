@@ -5,7 +5,7 @@ Ghost theme for `blog.nieusync.com`, styled to match the marketing site in
 
 Design tokens are a straight port of `website/src/index.css` — blue `#233877`,
 purple `#9F8EC2`, page background `#F5F5F7`, 135° blue→purple gradient,
-Montserrat body with Magistral Bold for `h1`, 14px cards with the same shadow
+Exo 2 body with Magistral Bold for `h1`, 14px cards with the same shadow
 pair, pill badges, uppercase letter-spaced buttons. If those change on the
 site, change them here too; nothing is shared at build time.
 
