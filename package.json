@@ -1,13 +1,13 @@
 {
   "name": "nieusync",
-  "description": "Ghost theme matching the NIEUSYNC marketing site",
+  "description": "Ghost theme matching the NieuSync marketing site",
   "version": "1.0.0",
   "engines": {
     "ghost": ">=5.0.0"
   },
   "license": "MIT",
   "author": {
-    "name": "NIEUSYNC",
+    "name": "NieuSync",
     "email": "geral@nieusync.com",
     "url": "https://nieusync.com"
   },
