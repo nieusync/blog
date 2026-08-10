@@ -53,12 +53,6 @@
     </div>
 </article>
 
-{{#if @site.members_enabled}}
-    <section class="section section-tight">
-        <div class="container container-narrow">{{> newsletter}}</div>
-    </section>
-{{/if}}
-
 {{#if primary_tag}}
 {{#get "posts" filter="id:-{{id}}+tag:{{primary_tag.slug}}" limit="2" as |related|}}
     {{#if related}}
