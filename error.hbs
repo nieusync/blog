@@ -2,15 +2,15 @@
 
 <section class="hero">
     <div class="container hero-inner">
-        <span class="section-label section-label-white">Erro {{statusCode}}</span>
+        <span class="section-label section-label-white">{{t "error.label"}} {{statusCode}}</span>
         <div class="accent-line accent-line-white accent-line-center"></div>
         <h1 class="hero-title">{{message}}</h1>
-        <p class="hero-subtitle">A página que procura não existe ou foi movida.</p>
+        <p class="hero-subtitle">{{t "error.subtitle"}}</p>
     </div>
 </section>
 
 <section class="section">
     <div class="container hero-inner">
-        <a class="btn btn-gradient" href="{{@site.url}}">Voltar ao blog</a>
+        <a class="btn btn-gradient" href="{{@site.url}}">{{t "error.back"}}</a>
     </div>
 </section>

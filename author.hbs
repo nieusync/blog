@@ -1,7 +1,7 @@
 {{!< default}}
 
 {{#author}}
-    {{> hero label="Autor" title=name subtitle=bio}}
+    {{> hero label=(t "post.author") title=name subtitle=bio}}
 {{/author}}
 
 <section class="section">
@@ -12,7 +12,7 @@
             </div>
             {{pagination}}
         {{else}}
-            <p class="empty">Este autor ainda não publicou artigos.</p>
+            <p class="empty">{{t "empty.author_posts"}}</p>
         {{/if}}
     </div>
 </section>

@@ -1,0 +1,54 @@
+{
+  "nav.who_we_are": "Who we are",
+  "nav.what_we_do": "What we do",
+  "nav.blog": "What we think",
+  "nav.client_area": "Client area",
+  "nav.menu": "Menu",
+  "nav.lang": "EN",
+  "nav.lang_switch": "Mudar para português",
+
+  "path.who_we_are": "who-we-are",
+  "path.what_we_do": "what-we-do",
+  "path.client_area": "client-area",
+  "path.contact": "contact",
+  "path.legal": "legal",
+  "path.pillars": "pillars",
+
+  "footer.company": "Company",
+  "footer.what_we_do": "What we do",
+  "footer.legal": "Legal",
+  "footer.contact": "Contact",
+  "footer.talk_to_us": "Talk to us",
+  "footer.rights": "All rights reserved.",
+
+  "pillar.legal": "Legal",
+  "pillar.digital": "Digital",
+  "pillar.strategy": "Strategy",
+  "pillar.operations": "Operations",
+  "pillar.financial": "Financial",
+
+  "legal.notice": "Legal notice",
+  "legal.privacy": "Privacy policy",
+  "legal.cookies": "Cookie policy",
+  "legal.terms": "Terms and conditions of use",
+
+  "post.read_article": "Read article",
+  "post.continue_reading": "Keep reading",
+  "post.author": "Author",
+
+  "newsletter.eyebrow": "Newsletter",
+  "newsletter.title": "Articles and use cases, in your inbox",
+  "newsletter.email": "Email",
+  "newsletter.placeholder": "your@email.com",
+  "newsletter.button": "Subscribe",
+  "newsletter.success": "One step left: confirm your subscription in the email we just sent.",
+  "newsletter.error": "We could not subscribe you. Check the address and try again.",
+
+  "error.label": "Error",
+  "error.subtitle": "The page you are looking for does not exist or has moved.",
+  "error.back": "Back to the blog",
+
+  "empty.posts": "No articles published yet.",
+  "empty.author_posts": "This author has not published anything yet.",
+  "empty.tag_posts": "No articles in this category yet."
+}
