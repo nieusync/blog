@@ -34,17 +34,47 @@ is the whole workflow.
 ## Install
 
 ```sh
+node check-i18n.mjs        # the gate: no framework, no dependencies
 zip -r nieusync.zip . -x '.git/*' -x '*.DS_Store'
 ```
 
 Upload the zip in Ghost admin → Settings → Design → Change theme → Upload, then
-activate. Requires Ghost >= 5.0.
+activate. Requires Ghost >= 6.0 (theme translations landed in 6).
 
-Site chrome that isn't in the templates comes from Ghost settings: the nav links
-are Settings → Navigation (primary shows in the header, secondary in the
-footer), and the logo falls back to the bundled `logo-nieusync.png` when
-Settings → Branding has none. `@custom.site_url` sets the header button target
-and defaults to `https://nieusync.com`.
+**There are two blogs, so this is two uploads.** `blog.nieusync.com/pt` and
+`/en` are separate Ghost instances running this same package; the theme carries
+both languages and each instance picks one.
+
+## Languages
+
+Ghost resolves `{{t "key"}}` against the site's own `locale` setting, one per
+instance, which is why the split exists: there is no per-visitor language in a
+Ghost theme. `locales/pt-PT.json` and `locales/en.json` hold every rendered
+string, and `node check-i18n.mjs` fails if a key is used but undefined, defined
+but unused, or empty. Worth running: Ghost prints a missing key verbatim instead
+of erroring, so the failure mode is a reader seeing `nav.who_we_are`.
+
+The `path.*` keys are URL segments on the marketing site, not prose. They must
+match the routes in [`nieusync/website`](https://github.com/nieusync/website)
+(`src/routes.ts`), so `quem-somos` and `who-we-are` are translated the same way
+in both repos or the header links 404.
+
+Three per-instance settings live in Ghost admin, not here:
+
+| Setting | Where | PT | EN |
+|---|---|---|---|
+| `locale` | Settings → General | `pt-PT` | `en` |
+| `site_url` | Settings → Design | `https://nieusync.com/pt` | `https://nieusync.com/en` |
+| `alt_lang_url` | Settings → Design | `https://blog.nieusync.com/en` | `https://blog.nieusync.com/pt` |
+
+`alt_lang_url` is what the header's language chip points at, so each instance
+sends readers to its sibling without the theme knowing which one it is. Get
+these backwards and the chip is a loop.
+
+Site chrome that isn't in the templates comes from Ghost settings: the logo
+falls back to the bundled `logo-nieusync.png` when Settings → Branding has none.
+The nav links are hardcoded in `default.hbs` rather than read from Settings →
+Navigation, so they stay identical to the marketing site's own header.
 
 ## Notes
 

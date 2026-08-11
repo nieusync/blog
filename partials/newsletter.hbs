@@ -5,17 +5,17 @@
           posts to the same members endpoint from its newsletter block. --}}
     <form class="newsletter" data-members-form="subscribe">
         <div class="newsletter-copy">
-            <p class="footer-col-title">Newsletter</p>
-            <h2 class="newsletter-title">Artigos e casos de uso, no seu email</h2>
+            <p class="footer-col-title">{{t "newsletter.eyebrow"}}</p>
+            <h2 class="newsletter-title">{{t "newsletter.title"}}</h2>
         </div>
         <div class="newsletter-fields">
-            <label class="newsletter-label" for="newsletter-email">Email</label>
+            <label class="newsletter-label" for="newsletter-email">{{t "newsletter.email"}}</label>
             <div class="newsletter-row">
-                <input id="newsletter-email" type="email" name="email" data-members-email required placeholder="o.seu@email.com" autocomplete="email">
-                <button type="submit">Subscrever</button>
+                <input id="newsletter-email" type="email" name="email" data-members-email required placeholder="{{t "newsletter.placeholder"}}" autocomplete="email">
+                <button type="submit">{{t "newsletter.button"}}</button>
             </div>
-            <p class="newsletter-message newsletter-success">Falta um passo: confirme a subscrição no email que lhe enviámos.</p>
-            <p class="newsletter-message newsletter-error">Não foi possível subscrever. Verifique o endereço e tente novamente.</p>
+            <p class="newsletter-message newsletter-success">{{t "newsletter.success"}}</p>
+            <p class="newsletter-message newsletter-error">{{t "newsletter.error"}}</p>
         </div>
     </form>
 </div>

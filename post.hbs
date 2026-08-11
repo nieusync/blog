@@ -44,7 +44,7 @@
             <div class="card author-card">
                 {{#if profile_image}}<img class="author-avatar" src="{{img_url profile_image size="s"}}" alt="{{name}}" loading="lazy">{{/if}}
                 <div>
-                    <span class="section-label">Autor</span>
+                    <span class="section-label">{{t "post.author"}}</span>
                     <h3 class="author-name">{{name}}</h3>
                     {{#if bio}}<p class="author-bio">{{bio}}</p>{{/if}}
                 </div>
@@ -58,7 +58,7 @@
     {{#if related}}
         <section class="section section-tight related">
             <div class="container">
-                <span class="section-label">Continuar a ler</span>
+                <span class="section-label">{{t "post.continue_reading"}}</span>
                 <div class="accent-line"></div>
                 <div class="post-grid">
                     {{#foreach related}}{{> post-card}}{{/foreach}}

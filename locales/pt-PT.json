@@ -1,0 +1,54 @@
+{
+  "nav.who_we_are": "Quem somos",
+  "nav.what_we_do": "O que fazemos",
+  "nav.blog": "O que pensamos",
+  "nav.client_area": "Área de cliente",
+  "nav.menu": "Menu",
+  "nav.lang": "PT",
+  "nav.lang_switch": "Mudar para inglês",
+
+  "path.who_we_are": "quem-somos",
+  "path.what_we_do": "o-que-fazemos",
+  "path.client_area": "area-de-cliente",
+  "path.contact": "contacto",
+  "path.legal": "legal",
+  "path.pillars": "pilares",
+
+  "footer.company": "Empresa",
+  "footer.what_we_do": "O que fazemos",
+  "footer.legal": "Legal",
+  "footer.contact": "Contacto",
+  "footer.talk_to_us": "Falar connosco",
+  "footer.rights": "Todos os direitos reservados.",
+
+  "pillar.legal": "Legal",
+  "pillar.digital": "Digital",
+  "pillar.strategy": "Estratégia",
+  "pillar.operations": "Operações",
+  "pillar.financial": "Financeira",
+
+  "legal.notice": "Aviso legal",
+  "legal.privacy": "Política de privacidade",
+  "legal.cookies": "Política de cookies",
+  "legal.terms": "Termos e condições de utilização",
+
+  "post.read_article": "Ler artigo",
+  "post.continue_reading": "Continuar a ler",
+  "post.author": "Autor",
+
+  "newsletter.eyebrow": "Newsletter",
+  "newsletter.title": "Artigos e casos de uso, no seu email",
+  "newsletter.email": "Email",
+  "newsletter.placeholder": "o.seu@email.com",
+  "newsletter.button": "Subscrever",
+  "newsletter.success": "Falta um passo: confirme a subscrição no email que lhe enviámos.",
+  "newsletter.error": "Não foi possível subscrever. Verifique o endereço e tente novamente.",
+
+  "error.label": "Erro",
+  "error.subtitle": "A página que procura não existe ou foi movida.",
+  "error.back": "Voltar ao blog",
+
+  "empty.posts": "Ainda não há artigos publicados.",
+  "empty.author_posts": "Este autor ainda não publicou artigos.",
+  "empty.tag_posts": "Ainda não há artigos nesta categoria."
+}

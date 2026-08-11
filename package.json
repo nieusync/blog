@@ -3,7 +3,7 @@
   "description": "Ghost theme matching the Nieusync marketing site",
   "version": "1.0.0",
   "engines": {
-    "ghost": ">=5.0.0"
+    "ghost": ">=6.0.0"
   },
   "license": "MIT",
   "author": {
@@ -17,16 +17,28 @@
   "config": {
     "posts_per_page": 12,
     "image_sizes": {
-      "s": { "width": 400 },
-      "m": { "width": 800 },
-      "l": { "width": 1200 },
-      "xl": { "width": 2000 }
+      "s": {
+        "width": 400
+      },
+      "m": {
+        "width": 800
+      },
+      "l": {
+        "width": 1200
+      },
+      "xl": {
+        "width": 2000
+      }
     },
     "card_assets": true,
     "custom": {
       "site_url": {
         "type": "text",
-        "default": "https://nieusync.com"
+        "default": "https://nieusync.com/pt"
+      },
+      "alt_lang_url": {
+        "type": "text",
+        "default": "https://blog.nieusync.com/en"
       }
     }
   }
