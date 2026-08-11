@@ -377,8 +377,8 @@ img { max-width: 100%; height: auto; }
 @media (min-width: 640px)  { .footer-inner { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .footer-inner { grid-template-columns: 1.3fr 1fr 1fr 1.2fr 1fr; } }
 
-.footer-logo { display: block; height: 36px; width: auto; margin-bottom: 20px; }
-.footer-description { max-width: 300px; font-size: 14px; line-height: 1.7; color: rgba(255, 255, 255, 0.45); margin-bottom: 24px; }
+.footer-brand { display: flex; flex-direction: column; align-items: center; }
+.footer-logo { display: block; height: 96px; width: auto; margin-bottom: 24px; }
 .footer-socials { display: flex; gap: 16px; }
 .footer-socials a { color: rgba(255, 255, 255, 0.45); transition: color 0.2s ease; }
 .footer-socials a:hover { color: var(--purple); }
