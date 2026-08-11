@@ -13,7 +13,7 @@ site, change them here too; nothing is shared at build time.
 
 ```
 default.hbs        shell: fixed white nav, gradient-free body, dark blue footer
-index.hbs          post grid (+ newsletter aside when members are enabled)
+index.hbs          post grid
 post.hbs           gradient header, feature image, content, author card, related
 page.hbs           static pages
 tag.hbs            per-tag archive
@@ -21,7 +21,7 @@ author.hbs         per-author archive
 partials/
   hero.hbs         gradient hero (label / accent line / title / subtitle)
   post-card.hbs    article tile
-  newsletter.hbs   Ghost members signup form
+  newsletter.hbs   Ghost members signup form, in the footer of every page
 assets/css/screen.css   the only stylesheet
 assets/fonts/           Magistral-Bold.woff2
 assets/img/             logo, light and white
