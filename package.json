@@ -36,9 +36,13 @@
         "type": "text",
         "default": "https://nieusync.com/pt"
       },
-      "alt_lang_url": {
+      "pt_url": {
         "type": "text",
-        "default": "https://blog.nieusync.com/en"
+        "default": "https://blog.nieusync.com/pt/"
+      },
+      "en_url": {
+        "type": "text",
+        "default": "https://blog.nieusync.com/en/"
       }
     }
   }

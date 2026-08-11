@@ -158,6 +158,34 @@ img { max-width: 100%; height: auto; }
     color: rgba(255, 255, 255, 0.70);
 }
 
+/* Native <details> dropdown: no JS in this theme. The marker is removed on
+   both the standard and the WebKit pseudo-element, or Safari keeps its arrow. */
+.site-nav-lang-menu { position: relative; }
+.site-nav-lang-menu > summary { list-style: none; cursor: pointer; }
+.site-nav-lang-menu > summary::-webkit-details-marker { display: none; }
+.site-nav-lang-menu > summary::marker { content: ""; }
+.site-nav-lang-menu[open] .site-nav-lang-caret { transform: rotate(180deg); }
+.site-nav-lang-caret { transition: transform 0.2s ease; }
+
+.site-nav-lang-panel {
+    position: absolute; right: 0; top: 100%; margin-top: 12px; z-index: 20;
+    min-width: 112px; padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.10); border-radius: 12px;
+    background: rgba(11, 13, 26, 0.95);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(16px);
+}
+
+.site-nav-lang-panel a {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 12px; border-radius: 8px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--white);
+}
+
+.site-nav-lang-panel a:hover { background: rgba(255, 255, 255, 0.06); }
+.site-nav-lang-panel a[aria-current] svg { color: var(--purple); }
+
 .site-nav-portal {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 10px 20px; border-radius: 100px;

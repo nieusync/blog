@@ -5,7 +5,7 @@
   "nav.client_area": "Client area",
   "nav.menu": "Menu",
   "nav.lang": "EN",
-  "nav.lang_switch": "Mudar para português",
+  "nav.language": "Language",
 
   "path.who_we_are": "who-we-are",
   "path.what_we_do": "what-we-do",
@@ -31,6 +31,9 @@
   "legal.privacy": "Privacy policy",
   "legal.cookies": "Cookie policy",
   "legal.terms": "Terms and conditions of use",
+
+  "home.title": "Articles and use cases",
+  "tag.label": "Category",
 
   "post.read_article": "Read article",
   "post.continue_reading": "Keep reading",

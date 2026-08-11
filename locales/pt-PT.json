@@ -5,7 +5,7 @@
   "nav.client_area": "Área de cliente",
   "nav.menu": "Menu",
   "nav.lang": "PT",
-  "nav.lang_switch": "Mudar para inglês",
+  "nav.language": "Idioma",
 
   "path.who_we_are": "quem-somos",
   "path.what_we_do": "o-que-fazemos",
@@ -31,6 +31,9 @@
   "legal.privacy": "Política de privacidade",
   "legal.cookies": "Política de cookies",
   "legal.terms": "Termos e condições de utilização",
+
+  "home.title": "Artigos e casos de uso",
+  "tag.label": "Categoria",
 
   "post.read_article": "Ler artigo",
   "post.continue_reading": "Continuar a ler",
