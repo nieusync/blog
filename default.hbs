@@ -74,6 +74,8 @@
 </main>
 
 <footer class="footer">
+    {{#if @site.members_enabled}}{{> newsletter}}{{/if}}
+
     <div class="container footer-inner">
         <div class="footer-brand">
             <img class="footer-logo" src="{{asset "img/logo-v-white.png"}}" alt="{{@site.title}}" loading="lazy">
