@@ -329,6 +329,47 @@ img { max-width: 100%; height: auto; }
 .content ul, .content ol { padding-left: 1.4em; }
 .content li + li { margin-top: 0.5em; }
 .content strong { font-weight: 700; color: var(--white); }
+
+/* Numbered lists: level 1 is "1." in bold white, matching the weight of the
+   emphasised text inside each item. Sub-lists use "a) b) c)" and, inside
+   those, "i) ii) iii)", so a number is never repeated at two depths. */
+.content {
+    counter-reset: content-ol-1;
+}
+.content ol {
+    list-style: none;
+}
+.content > ol > li {
+    counter-increment: content-ol-1;
+}
+.content ol > li::marker {
+    content: counter(content-ol-1) ". ";
+    font-weight: 700;
+    color: var(--white);
+}
+.content ol ol {
+    counter-reset: content-ol-2;
+    margin-top: 0.5em;
+}
+.content ol ol > li {
+    counter-increment: content-ol-2;
+}
+.content ol ol > li::marker {
+    content: counter(content-ol-2, lower-alpha) ") ";
+    font-weight: 400;
+    color: var(--text);
+}
+.content ol ol ol {
+    counter-reset: content-ol-3;
+}
+.content ol ol ol > li {
+    counter-increment: content-ol-3;
+}
+.content ol ol ol > li::marker {
+    content: counter(content-ol-3, lower-roman) ") ";
+    font-weight: 400;
+    color: var(--text);
+}
 .content hr { border: none; height: 1px; background: var(--line); margin: 2.5em 0; }
 
 .content blockquote {
