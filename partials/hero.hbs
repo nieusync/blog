@@ -1,9 +1,11 @@
-{{!-- Gradient hero, mirrors the site's section-label / accent-line / title stack --}}
+{{!-- Gradient hero, mirrors the site's tech-grid + glow + section-label / title stack --}}
 <section class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-blue" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-purple" aria-hidden="true"></div>
     <div class="container hero-inner">
-        {{#if label}}<span class="section-label section-label-white">{{label}}</span>{{/if}}
-        <div class="accent-line accent-line-white accent-line-center"></div>
-        <h1 class="hero-title">{{title}}</h1>
-        {{#if subtitle}}<p class="hero-subtitle">{{subtitle}}</p>{{/if}}
+        {{#if label}}<span class="section-label animate-fade-up">{{label}}</span>{{/if}}
+        <h1 class="hero-title animate-fade-up" style="animation-delay:100ms">{{title}}</h1>
+        {{#if subtitle}}<p class="hero-subtitle animate-fade-up" style="animation-delay:200ms">{{subtitle}}</p>{{/if}}
     </div>
 </section>
