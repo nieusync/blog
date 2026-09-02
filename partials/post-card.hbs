@@ -17,14 +17,21 @@
 
         <a href="{{url}}"><h3 class="post-card-title">{{title}}</h3></a>
 
-        {{#if excerpt}}<p class="post-card-excerpt">{{excerpt words="24"}}</p>{{/if}}
+        {{#if excerpt}}
+            <p class="post-card-excerpt">{{excerpt words="20"}}&hellip;</p>
+        {{/if}}
+        <a class="post-card-more" href="{{url}}">{{t "post.read_article"}}</a>
 
         <div class="post-card-meta">
             <div class="post-card-meta-row">
                 <span class="post-card-time">{{reading_time}} &middot; {{date format="MMM YYYY"}}</span>
-                <a class="post-card-more" href="{{url}}">{{t "post.read_article"}}</a>
+                {{#primary_author}}
+                    <span class="post-card-author">
+                        {{#if profile_image}}<img class="post-card-author-avatar" src="{{profile_image}}" alt="{{name}}" loading="lazy">{{/if}}
+                        {{name}}
+                    </span>
+                {{/primary_author}}
             </div>
-            {{#primary_author}}<span class="post-card-author">{{name}}</span>{{/primary_author}}
         </div>
     </div>
 </article>
