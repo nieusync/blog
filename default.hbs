@@ -39,7 +39,19 @@
 
         <nav class="site-nav-list">
             <a href="{{@custom.site_url}}/{{t "path.who_we_are"}}">{{t "nav.who_we_are"}}</a>
-            <a href="{{@custom.site_url}}/{{t "path.what_we_do"}}">{{t "nav.what_we_do"}}</a>
+            <details class="site-nav-what-menu">
+                <summary>{{t "nav.what_we_do"}}<svg class="site-nav-what-caret" viewBox="0 0 256 256" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg></summary>
+                <div class="site-nav-what-panel">
+                    <a href="{{@custom.site_url}}/{{t "path.what_we_do"}}">{{t "nav.what_we_do"}}</a>
+                    <p>{{t "nav.services"}}</p>
+                    <a href="{{@custom.site_url}}/{{t "path.legal_services"}}">{{t "nav.legal_services"}}</a>
+                    <a href="{{@custom.site_url}}/{{t "path.compliance"}}">{{t "nav.compliance"}}</a>
+                    <p>{{t "nav.tools"}}</p>
+                    <a href="{{@custom.site_url}}/{{t "path.funding"}}">{{t "nav.funding"}}</a>
+                    <a href="{{@custom.site_url}}/{{t "path.pme_check"}}">{{t "nav.pme_check"}}</a>
+                    <a href="{{@custom.site_url}}/{{t "path.rgpc_check"}}">{{t "nav.rgpc_check"}}</a>
+                </div>
+            </details>
             <a href="{{@site.url}}">{{t "nav.blog"}}</a>
         </nav>
 
@@ -80,7 +92,19 @@
 
     <nav class="site-nav-panel">
         <a href="{{@custom.site_url}}/{{t "path.who_we_are"}}">{{t "nav.who_we_are"}}</a>
-        <a href="{{@custom.site_url}}/{{t "path.what_we_do"}}">{{t "nav.what_we_do"}}</a>
+        <details class="site-nav-what-mobile">
+            <summary>{{t "nav.what_we_do"}}</summary>
+            <div>
+                <a href="{{@custom.site_url}}/{{t "path.what_we_do"}}">{{t "nav.what_we_do"}}</a>
+                <p>{{t "nav.services"}}</p>
+                <a href="{{@custom.site_url}}/{{t "path.legal_services"}}">{{t "nav.legal_services"}}</a>
+                <a href="{{@custom.site_url}}/{{t "path.compliance"}}">{{t "nav.compliance"}}</a>
+                <p>{{t "nav.tools"}}</p>
+                <a href="{{@custom.site_url}}/{{t "path.funding"}}">{{t "nav.funding"}}</a>
+                <a href="{{@custom.site_url}}/{{t "path.pme_check"}}">{{t "nav.pme_check"}}</a>
+                <a href="{{@custom.site_url}}/{{t "path.rgpc_check"}}">{{t "nav.rgpc_check"}}</a>
+            </div>
+        </details>
         <a href="{{@site.url}}">{{t "nav.blog"}}</a>
         <a class="site-nav-portal site-nav-portal-panel" href="{{@custom.site_url}}/{{t "path.client_area"}}">
             <svg viewBox="0 0 256 256" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M208,76H180V56A52,52,0,0,0,76,56V76H48A20,20,0,0,0,28,96V208a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V96A20,20,0,0,0,208,76ZM100,56a28,28,0,0,1,56,0V76H100ZM204,204H52V100H204Zm-76-92a32,32,0,0,0-12,61.66V180a12,12,0,0,0,24,0v-6.34A32,32,0,0,0,128,112Zm0,24a8,8,0,1,1-8,8A8,8,0,0,1,128,136Z"/></svg>
