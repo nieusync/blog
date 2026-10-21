@@ -27,9 +27,9 @@ assets/fonts/           Magistral-Bold.woff2
 assets/img/             logo, light and white
 ```
 
-No build step and no JavaScript: the mobile nav is a checkbox toggle, and the
-newsletter form is Ghost's own `data-members-form`. Editing a `.hbs` or the CSS
-is the whole workflow.
+No build step: the mobile nav is a checkbox toggle, the newsletter form is
+Ghost's own `data-members-form`, and `default.hbs` loads GA4 after consent.
+Editing a `.hbs` or the CSS is the whole workflow.
 
 ## Install
 
@@ -43,7 +43,11 @@ activate. Requires Ghost >= 6.0 (theme translations landed in 6).
 
 **There are two blogs, so this is two uploads.** `blog.nieusync.com/pt` and
 `/en` are separate Ghost instances running this same package; the theme carries
-both languages and each instance picks one.
+both languages and each instance picks one. The shared `default.hbs` loads GA4
+property `G-45LJD610R7` for both after consent. The decision is stored in the
+parent-domain `nieusync_analytics_consent_v1` cookie, so it applies to the
+website and both blogs. Remove any analytics snippet from each instance's Code
+injection before activating this theme.
 
 ## Languages
 

@@ -152,6 +152,82 @@
     </div>
 </footer>
 
+<button type="button" class="cookie-settings" data-cookie-settings>{{t "cookie.settings"}}</button>
+
+<div class="cookie-consent" data-cookie-consent hidden role="dialog" aria-modal="true" aria-labelledby="cookie-consent-title">
+    <h2 id="cookie-consent-title">{{t "cookie.title"}}</h2>
+    <p>{{t "cookie.description"}} <a href="{{@custom.site_url}}/{{t "path.legal"}}/cookie-policy">{{t "cookie.policy"}}</a></p>
+    <div class="cookie-consent-actions">
+        <button type="button" class="btn btn-outline" data-cookie-refuse>{{t "cookie.refuse"}}</button>
+        <button type="button" class="btn btn-gradient" data-cookie-accept>{{t "cookie.accept"}}</button>
+    </div>
+</div>
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    const cookieName = 'nieusync_analytics_consent_v1';
+    const consent = document.cookie.match(new RegExp('(?:^|; )' + cookieName + '=(accepted|refused)(?:;|$)'))?.[1];
+    const consentDialog = document.querySelector('[data-cookie-consent]');
+
+    function writeConsent(value) {
+        document.cookie = cookieName + '=' + value + '; Domain=.nieusync.com; Path=/; Max-Age=31536000; SameSite=Lax; Secure';
+    }
+
+    function clearAnalyticsCookies() {
+        document.cookie.split(';').forEach(function (entry) {
+            const name = entry.trim().split('=', 1)[0];
+            if (name !== '_ga' && !name.startsWith('_ga_')) return;
+            document.cookie = name + '=; Max-Age=0; Path=/; SameSite=Lax';
+            document.cookie = name + '=; Max-Age=0; Domain=.nieusync.com; Path=/; SameSite=Lax';
+        });
+    }
+
+    function refuse() {
+        writeConsent('refused');
+        gtag('consent', 'update', {
+            ad_storage: 'denied',
+            analytics_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied'
+        });
+        clearAnalyticsCookies();
+        consentDialog.hidden = true;
+    }
+
+    function accept() {
+        writeConsent('accepted');
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+        gtag('event', 'page_view', {
+            page_location: window.location.origin + window.location.pathname,
+            page_path: window.location.pathname
+        });
+        consentDialog.hidden = true;
+    }
+
+    gtag('consent', 'default', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+    });
+    gtag('js', new Date());
+    gtag('config', 'G-45LJD610R7', { cookie_domain: 'nieusync.com', send_page_view: false });
+
+    if (consent === 'accepted') accept();
+    else if (consent === 'refused') refuse();
+    else consentDialog.hidden = false;
+
+    document.querySelector('[data-cookie-accept]').addEventListener('click', accept);
+    document.querySelector('[data-cookie-refuse]').addEventListener('click', refuse);
+    document.querySelector('[data-cookie-settings]').addEventListener('click', function () {
+        consentDialog.hidden = false;
+    });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-45LJD610R7"></script>
+
 {{ghost_foot}}
 </body>
 </html>

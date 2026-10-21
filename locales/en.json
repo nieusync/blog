@@ -51,6 +51,13 @@
   "error.subtitle": "The page you are looking for does not exist or has moved.",
   "error.back": "Back to the blog",
 
+  "cookie.title": "Analytics cookies",
+  "cookie.description": "May we use Google Analytics to understand which pages visitors read?",
+  "cookie.policy": "Cookie policy",
+  "cookie.refuse": "Refuse",
+  "cookie.accept": "Accept",
+  "cookie.settings": "Cookie settings",
+
   "empty.posts": "No articles published yet.",
   "empty.author_posts": "This author has not published anything yet.",
   "empty.tag_posts": "No articles in this category yet."

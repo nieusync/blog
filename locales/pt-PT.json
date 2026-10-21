@@ -51,6 +51,13 @@
   "error.subtitle": "A página que procura não existe ou foi movida.",
   "error.back": "Voltar ao blog",
 
+  "cookie.title": "Cookies de analítica",
+  "cookie.description": "Podemos utilizar o Google Analytics para perceber que páginas os visitantes leem?",
+  "cookie.policy": "Política de cookies",
+  "cookie.refuse": "Recusar",
+  "cookie.accept": "Aceitar",
+  "cookie.settings": "Definições de cookies",
+
   "empty.posts": "Ainda não há artigos publicados.",
   "empty.author_posts": "Este autor ainda não publicou artigos.",
   "empty.tag_posts": "Ainda não há artigos nesta categoria."
