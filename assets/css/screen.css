@@ -233,16 +233,6 @@ img { max-width: 100%; height: auto; }
 .site-nav-lang-panel a:hover { background: rgba(255, 255, 255, 0.06); }
 .site-nav-lang-panel a[aria-current] svg { color: var(--purple); }
 
-.site-nav-portal {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 10px 20px; border-radius: 100px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--white);
-    transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
-.site-nav-portal:hover { transform: translateY(-2px); border-color: var(--purple); color: var(--purple); }
-@media (max-width: 640px) { .site-nav-actions > .site-nav-portal { display: none; } }
 
 /* ponytail: checkbox toggle, the theme still ships no JS */
 .site-nav-toggle { display: none; }
@@ -273,10 +263,6 @@ img { max-width: 100%; height: auto; }
     .site-nav-what-mobile > div { display: flex; flex-direction: column; gap: 12px; margin-top: 12px; padding-left: 16px; border-left: 1px solid var(--line); }
     .site-nav-what-mobile > div a { font-size: 14px; }
     .site-nav-what-mobile > div p { margin: 8px 0 0; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255, 255, 255, 0.55); }
-    .site-nav-portal-panel {
-        align-self: flex-start; font-size: 11px; min-height: 48px;
-        color: var(--white);
-    }
 }
 
 /* ── hero ───────────────────────────────────────────────────────────── */
