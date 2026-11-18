@@ -1,0 +1,11 @@
+{{!-- Replaces Ghost's built-in pagination, whose labels are English on both
+      instances. Same markup and classes, with the text from the locale files. --}}
+<nav class="pagination" aria-label="{{t "pagination.label"}}">
+    {{#if prev}}
+        <a class="newer-posts" href="{{page_url prev}}"><span aria-hidden="true">&larr;</span> {{t "pagination.newer"}}</a>
+    {{/if}}
+    <span class="page-number">{{t "pagination.page" page=page pages=pages}}</span>
+    {{#if next}}
+        <a class="older-posts" href="{{page_url next}}">{{t "pagination.older"}} <span aria-hidden="true">&rarr;</span></a>
+    {{/if}}
+</nav>

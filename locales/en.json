@@ -3,6 +3,7 @@
   "nav.what_we_do": "What we do",
   "nav.blog": "What we think",
   "nav.menu": "Menu",
+  "nav.skip": "Skip to content",
   "nav.lang": "EN",
   "nav.language": "Language",
   "nav.services": "Services",
@@ -28,7 +29,7 @@
   "footer.what_we_do": "What we do",
   "footer.legal": "Legal",
   "footer.contact": "Contact",
-  "footer.talk_to_us": "Talk to us",
+  "footer.contact_page": "Contact page",
   "footer.rights": "All rights reserved.",
 
   "pillar.legal": "Legal",
@@ -48,6 +49,14 @@
   "post.read_article": "Read article",
   "post.continue_reading": "Keep reading",
   "post.author": "Author",
+  "post.reading_time_short": "< 1 min read",
+  "post.reading_time_one": "1 min read",
+  "post.reading_time_many": "% min read",
+
+  "pagination.label": "Pagination",
+  "pagination.newer": "Newer articles",
+  "pagination.older": "Older articles",
+  "pagination.page": "Page {page} of {pages}",
 
   "newsletter.eyebrow": "Newsletter",
   "newsletter.title": "Articles and use cases, in your inbox",
@@ -55,6 +64,7 @@
   "newsletter.placeholder": "your@email.com",
   "newsletter.button": "Subscribe",
   "newsletter.success": "One step left: confirm your subscription in the email we just sent.",
+  "newsletter.privacy": "Your data is handled under the",
   "newsletter.error": "We could not subscribe you. Check the address and try again.",
 
   "error.label": "Error",
