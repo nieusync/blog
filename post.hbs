@@ -42,7 +42,7 @@
 
         {{#primary_author}}
             <div class="card author-card">
-                {{#if profile_image}}<img class="author-avatar" src="{{img_url profile_image size="s"}}" alt="{{name}}" loading="lazy">{{/if}}
+                {{#if profile_image}}<img class="author-avatar" src="{{img_url profile_image size="avatar"}}" width="64" height="64" alt="{{name}}" loading="lazy">{{/if}}
                 <div>
                     <span class="section-label">{{t "post.author"}}</span>
                     <h3 class="author-name">{{name}}</h3>

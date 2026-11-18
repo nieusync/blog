@@ -17,6 +17,9 @@
   "config": {
     "posts_per_page": 12,
     "image_sizes": {
+      "avatar": {
+        "width": 128
+      },
       "s": {
         "width": 400
       },
