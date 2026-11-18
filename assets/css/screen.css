@@ -490,9 +490,22 @@ img { max-width: 100%; height: auto; }
     background: rgba(159, 142, 194, 0.22) !important; color: var(--white) !important; font-weight: 700 !important;
 }
 .content th *, .content td * { font-family: inherit !important; font-size: inherit !important; line-height: inherit !important; color: inherit !important; background: transparent !important; margin: 0 !important; }
+/* Phones: each row becomes a card, one value per line with its column name
+   in front (data-label, set by the small script in default.hbs). Nothing is
+   squeezed into narrow columns, so words are never split and nothing scrolls
+   sideways. Without the script the cards still stack, just without labels. */
 @media (max-width: 600px) {
-    .content table { font-size: 13px !important; }
-    .content th, .content td { padding: 8px 8px !important; hyphens: auto; }
+    .content table, .content tbody, .content tr, .content th, .content td { display: block !important; width: 100% !important; }
+    .content table { border: 0 !important; }
+    .content thead, .content table tr.table-head-row { display: none !important; }
+    .content tr { margin: 0 0 14px !important; border: 1px solid var(--line) !important; border-radius: 12px; overflow: hidden; }
+    .content th, .content td { border: 0 !important; border-bottom: 1px solid var(--line) !important; padding: 10px 14px !important; overflow-wrap: break-word !important; }
+    .content tr > :last-child { border-bottom: 0 !important; }
+    .content td[data-label]::before {
+        content: attr(data-label); display: block; margin-bottom: 2px;
+        font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--purple);
+    }
+    .content tbody th { background: rgba(159, 142, 194, 0.22) !important; }
 }
 
 /* Koenig cards */

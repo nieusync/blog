@@ -87,9 +87,11 @@ Navigation, so they stay identical to the marketing site's own header.
 ## Content rules the theme enforces
 
 - **Tables** look the same in every article, whatever inline styles came with
-  them (Google Docs borders, fixed widths, `nowrap` headers). They fill the
-  text column, are centred in it, and wrap long words, so they never scroll
-  sideways or widen the page on a phone or when zoomed in. The CSS uses
+  them (Google Docs borders, fixed widths, `nowrap` headers). On wider screens
+  they fill the text column, centred in it. On phones (600 px and below) each
+  row becomes a card with one value per line and its column name in front,
+  copied from the header row by a short script in `default.hbs`. Nothing
+  scrolls sideways and no word is split, on a phone or when zoomed in. The CSS uses
   `!important` on purpose: that is what overrides the pasted inline styles.
 - **Legal notice at the end of articles** is written in each article, not added
   by the theme.

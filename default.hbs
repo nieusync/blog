@@ -178,6 +178,33 @@
 </div>
 
 <script>
+    // Tables in articles: copy each column's header onto its cells, so the
+    // phone layout (one card per row) can show it in front of every value.
+    // The header is the thead row, or a first row made only of th cells.
+    document.querySelectorAll('.content table').forEach(function (table) {
+        let head = table.querySelector('thead tr');
+        const rows = Array.from(table.querySelectorAll('tr'));
+        if (!head && rows.length && rows[0].querySelectorAll('td').length === 0) head = rows[0];
+        if (!head) return;
+        head.classList.add('table-head-row');
+        // Spread each header over the columns it spans, then label cells by
+        // the column they start in, so merged cells keep the right names.
+        const labels = [];
+        Array.from(head.children).forEach(function (cell) {
+            for (let i = 0; i < (cell.colSpan || 1); i++) labels.push(cell.textContent.trim());
+        });
+        rows.forEach(function (row) {
+            if (row === head) return;
+            let col = 0;
+            Array.from(row.children).forEach(function (cell) {
+                if (labels[col]) cell.setAttribute('data-label', labels[col]);
+                col += cell.colSpan || 1;
+            });
+        });
+    });
+</script>
+
+<script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
 
