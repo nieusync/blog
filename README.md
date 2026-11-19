@@ -3,18 +3,19 @@
 Ghost theme for `blog.nieusync.com`, styled to match the marketing site in
 [`nieusync/website`](https://github.com/nieusync/website).
 
-Design tokens are a straight port of `website/src/index.css` — blue `#233877`,
-purple `#9F8EC2`, page background `#F5F5F7`, 135° blue→purple gradient,
-Exo 2 body with Magistral Bold for `h1`, 14px cards with the same shadow
-pair, pill badges, uppercase letter-spaced buttons. If those change on the
-site, change them here too; nothing is shared at build time.
+Design tokens are a port of `website/src/index.css`: dark page background
+`#070B1D` (`--ink`), blue `#233877`, purple `#9F8EC2`, 135° blue→purple
+gradient, Montserrat for body text and Magistral Bold for `h1` and `h2`,
+translucent cards on the dark surface, pill badges, uppercase letter-spaced
+buttons. If those change on the site, change them here too; nothing is shared
+at build time.
 
 ## Layout
 
 ```
-default.hbs        shell: fixed white nav, gradient-free body, dark blue footer
+default.hbs        shell: dark nav, skip link, footer, cookie consent and GA4
 index.hbs          post grid
-post.hbs           gradient header, feature image, content, author card, related
+post.hbs           header, feature image, content, author card, up to three related
 page.hbs           static pages
 tag.hbs            per-tag archive
 author.hbs         per-author archive
@@ -22,9 +23,10 @@ partials/
   hero.hbs         gradient hero (label / accent line / title / subtitle)
   post-card.hbs    article tile
   newsletter.hbs   Ghost members signup form, in the footer of every page
+  pagination.hbs   replaces Ghost's built-in one, whose labels are English
 assets/css/screen.css   the only stylesheet
 assets/fonts/           Magistral-Bold.woff2
-assets/img/             logo, light and white
+assets/img/             logos and favicons
 ```
 
 No build step: the mobile nav is a checkbox toggle, the newsletter form is
@@ -63,27 +65,42 @@ match the routes in [`nieusync/website`](https://github.com/nieusync/website)
 (`src/routes.ts`), so `quem-somos` and `who-we-are` are translated the same way
 in both repos or the header links 404.
 
-Three per-instance settings live in Ghost admin, not here:
+Per-instance settings live in Ghost admin, not here:
 
 | Setting | Where | PT | EN |
 |---|---|---|---|
 | `locale` | Settings → General | `pt-PT` | `en` |
 | `site_url` | Settings → Design | `https://nieusync.com/pt` | `https://nieusync.com/en` |
-| `alt_lang_url` | Settings → Design | `https://blog.nieusync.com/en` | `https://blog.nieusync.com/pt` |
+| `pt_url` | Settings → Design | `https://blog.nieusync.com/pt/` | same |
+| `en_url` | Settings → Design | `https://blog.nieusync.com/en/` | same |
 
-`alt_lang_url` is what the header's language chip points at, so each instance
-sends readers to its sibling without the theme knowing which one it is. Get
-these backwards and the chip is a loop.
+`pt_url` and `en_url` feed the language menu in the header. Both instances list
+both languages; the current one is marked from `locale`.
 
-Site chrome that isn't in the templates comes from Ghost settings: the logo
-falls back to the bundled `logo-nieusync.png` when Settings → Branding has none.
+Ghost helpers that print their own English text get it from the locale files
+instead: `{{reading_time}}` through its `seconds`, `minute` and `minutes`
+options, and the pagination through `partials/pagination.hbs`.
+
 The nav links are hardcoded in `default.hbs` rather than read from Settings →
 Navigation, so they stay identical to the marketing site's own header.
 
+## Content rules the theme enforces
+
+- **Tables** look the same in every article, whatever inline styles came with
+  them (Google Docs borders, fixed widths, `nowrap` headers). On wider screens
+  they fill the text column, centred in it. On phones (600 px and below) each
+  row becomes a card with one value per line and its column name in front,
+  copied from the header row by a short script in `default.hbs`. Nothing
+  scrolls sideways and no word is split, on a phone or when zoomed in. The CSS uses
+  `!important` on purpose: that is what overrides the pasted inline styles.
+- **Legal notice at the end of articles** is written in each article, not added
+  by the theme.
+
 ## Notes
 
-- Portuguese is hardcoded in a few labels ("Ler artigo", "Continuar a ler",
-  "Autor", newsletter copy). Ghost themes have no i18n dictionary like the
-  website's; translating means editing the partials or adding locale files.
+- Planned, not done yet: self-host Montserrat (today it loads from Google
+  Fonts before consent, which sends the visitor's IP to Google), and load
+  `gtag.js` only after the visitor accepts analytics (today it loads in
+  consent mode and Google receives cookieless pings before a choice).
 - `Magistral-Bold.woff2` is copied from the website repo. Same commercial font,
   same organisation using it — check the licence covers this second domain.

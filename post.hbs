@@ -12,7 +12,7 @@
                 <span class="post-meta-dot">&middot;</span>
                 <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
                 <span class="post-meta-dot">&middot;</span>
-                <span>{{reading_time}}</span>
+                <span>{{reading_time seconds=(t "post.reading_time_short") minute=(t "post.reading_time_one") minutes=(t "post.reading_time_many")}}</span>
             </div>
         </div>
     </header>
@@ -42,7 +42,7 @@
 
         {{#primary_author}}
             <div class="card author-card">
-                {{#if profile_image}}<img class="author-avatar" src="{{img_url profile_image size="avatar"}}" width="64" height="64" alt="{{name}}" loading="lazy">{{/if}}
+                {{#if profile_image}}<img class="author-avatar" src="{{img_url profile_image size="avatar"}}" width="120" height="120" alt="{{name}}" loading="lazy">{{/if}}
                 <div>
                     <span class="section-label">{{t "post.author"}}</span>
                     <h3 class="author-name">{{name}}</h3>
@@ -53,19 +53,27 @@
     </div>
 </article>
 
-{{#if primary_tag}}
-{{#get "posts" filter="id:-{{id}}+tag:{{primary_tag.slug}}" limit="2" as |related|}}
-    {{#if related}}
-        <section class="section section-tight related">
-            <div class="container">
-                <span class="section-label">{{t "post.continue_reading"}}</span>
-                <div class="accent-line"></div>
-                <div class="post-grid">
-                    {{#foreach related}}{{> post-card}}{{/foreach}}
-                </div>
-            </div>
-        </section>
-    {{/if}}
-{{/get}}
-{{/if}}
+{{!-- Up to three more articles: same category first, then the most recent
+      others. Both lists are fetched and the CSS shows the first three cards,
+      because a get block cannot see how many results the other one had. --}}
+<section class="section section-tight related">
+    <div class="container">
+        <span class="section-label">{{t "post.continue_reading"}}</span>
+        <div class="accent-line"></div>
+        <div class="post-grid">
+            {{#if primary_tag}}
+                {{#get "posts" filter="id:-{{id}}+tag:{{primary_tag.slug}}" limit="3" as |same|}}
+                    {{#foreach same}}{{> post-card}}{{/foreach}}
+                {{/get}}
+                {{#get "posts" filter="id:-{{id}}+tag:-{{primary_tag.slug}}" limit="3" as |recent|}}
+                    {{#foreach recent}}{{> post-card}}{{/foreach}}
+                {{/get}}
+            {{else}}
+                {{#get "posts" filter="id:-{{id}}" limit="3" as |recent|}}
+                    {{#foreach recent}}{{> post-card}}{{/foreach}}
+                {{/get}}
+            {{/if}}
+        </div>
+    </div>
+</section>
 {{/post}}

@@ -14,6 +14,7 @@
                 <input id="newsletter-email" type="email" name="email" data-members-email required placeholder="{{t "newsletter.placeholder"}}" autocomplete="email">
                 <button type="submit">{{t "newsletter.button"}}</button>
             </div>
+            <p class="newsletter-privacy">{{t "newsletter.privacy"}} <a href="{{@custom.site_url}}/{{t "path.legal"}}/privacy-policy">{{t "legal.privacy"}}</a>.</p>
             <p class="newsletter-message newsletter-success">{{t "newsletter.success"}}</p>
             <p class="newsletter-message newsletter-error">{{t "newsletter.error"}}</p>
         </div>

@@ -24,10 +24,10 @@
 
         <div class="post-card-meta">
             <div class="post-card-meta-row">
-                <span class="post-card-time">{{reading_time}} &middot; {{date format="MMM YYYY"}}</span>
+                <span class="post-card-time">{{reading_time seconds=(t "post.reading_time_short") minute=(t "post.reading_time_one") minutes=(t "post.reading_time_many")}} &middot; {{date format="MMM YYYY"}}</span>
                 {{#primary_author}}
                     <span class="post-card-author">
-                        {{#if profile_image}}<img class="post-card-author-avatar" src="{{img_url profile_image size="avatar"}}" width="20" height="20" alt="{{name}}" loading="lazy">{{/if}}
+                        {{#if profile_image}}<img class="post-card-author-avatar" src="{{img_url profile_image size="avatar"}}" width="32" height="32" alt="{{name}}" loading="lazy">{{/if}}
                         {{name}}
                     </span>
                 {{/primary_author}}

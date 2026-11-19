@@ -17,6 +17,7 @@
     <link rel="apple-touch-icon" href="{{asset "img/apple-touch-icon.png"}}">
 </head>
 <body class="{{body_class}}">
+<a class="skip-link" href="#main">{{t "nav.skip"}}</a>
 
 {{!-- Header and footer mirror nieusync/website/src/components/SiteChrome.tsx.
       The links are hardcoded rather than read from Ghost's navigation settings
@@ -104,7 +105,7 @@
     </nav>
 </header>
 
-<main class="site-main">
+<main class="site-main" id="main" tabindex="-1">
     {{{body}}}
 </main>
 
@@ -155,18 +156,17 @@
             <p class="footer-col-title">{{t "footer.contact"}}</p>
             <a class="footer-link" href="tel:+351269030096">(+351) 269 030 096</a>
             <a class="footer-link" href="mailto:geral@nieusync.com">geral@nieusync.com</a>
-            <a class="footer-link" href="{{@custom.site_url}}/{{t "path.contact"}}">{{t "footer.talk_to_us"}}</a>
+            <a class="footer-link" href="{{@custom.site_url}}/{{t "path.contact"}}">{{t "footer.contact_page"}}</a>
         </div>
     </div>
 
     <div class="footer-bottom">
         <div class="container">
-            <p>&copy; {{date format="YYYY"}} Nieusync, Sociedade Multidisciplinar de Advogados e Consultores SP, LDA. Registo OA 17/26 &mdash; {{t "footer.rights"}}</p>
+            <button type="button" class="cookie-settings" data-cookie-settings>{{t "cookie.settings"}}</button>
+            <p>&copy; {{date format="YYYY"}} Nieusync, Sociedade Multidisciplinar de Advogados e Consultores, SP, Lda. Registo OA 17/26 &mdash; {{t "footer.rights"}}</p>
         </div>
     </div>
 </footer>
-
-<button type="button" class="cookie-settings" data-cookie-settings>{{t "cookie.settings"}}</button>
 
 <div class="cookie-consent" data-cookie-consent hidden role="dialog" aria-modal="true" aria-labelledby="cookie-consent-title">
     <h2 id="cookie-consent-title">{{t "cookie.title"}}</h2>
@@ -176,6 +176,33 @@
         <button type="button" class="btn btn-gradient" data-cookie-accept>{{t "cookie.accept"}}</button>
     </div>
 </div>
+
+<script>
+    // Tables in articles: copy each column's header onto its cells, so the
+    // phone layout (one card per row) can show it in front of every value.
+    // The header is the thead row, or a first row made only of th cells.
+    document.querySelectorAll('.content table').forEach(function (table) {
+        let head = table.querySelector('thead tr');
+        const rows = Array.from(table.querySelectorAll('tr'));
+        if (!head && rows.length && rows[0].querySelectorAll('td').length === 0) head = rows[0];
+        if (!head) return;
+        head.classList.add('table-head-row');
+        // Spread each header over the columns it spans, then label cells by
+        // the column they start in, so merged cells keep the right names.
+        const labels = [];
+        Array.from(head.children).forEach(function (cell) {
+            for (let i = 0; i < (cell.colSpan || 1); i++) labels.push(cell.textContent.trim());
+        });
+        rows.forEach(function (row) {
+            if (row === head) return;
+            let col = 0;
+            Array.from(row.children).forEach(function (cell) {
+                if (labels[col]) cell.setAttribute('data-label', labels[col]);
+                col += cell.colSpan || 1;
+            });
+        });
+    });
+</script>
 
 <script>
     window.dataLayer = window.dataLayer || [];
@@ -236,8 +263,24 @@
 
     document.querySelector('[data-cookie-accept]').addEventListener('click', accept);
     document.querySelector('[data-cookie-refuse]').addEventListener('click', refuse);
-    document.querySelector('[data-cookie-settings]').addEventListener('click', function () {
+    // Keyboard users land on the dialog's first button, Escape closes it, and
+    // focus goes back to the link that opened it.
+    let opener = null;
+    function openConsent(from) {
+        opener = from || null;
         consentDialog.hidden = false;
+        consentDialog.querySelector('[data-cookie-refuse]').focus();
+    }
+    consentDialog.addEventListener('keydown', function (event) {
+        if (event.key !== 'Escape') return;
+        consentDialog.hidden = true;
+        if (opener) opener.focus();
+    });
+    consentDialog.addEventListener('click', function (event) {
+        if (event.target.closest('[data-cookie-accept], [data-cookie-refuse]') && opener) opener.focus();
+    });
+    document.querySelector('[data-cookie-settings]').addEventListener('click', function (event) {
+        openConsent(event.currentTarget);
     });
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-45LJD610R7"></script>

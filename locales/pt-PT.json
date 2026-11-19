@@ -3,6 +3,7 @@
   "nav.what_we_do": "O que fazemos",
   "nav.blog": "O que pensamos",
   "nav.menu": "Menu",
+  "nav.skip": "Saltar para o conteúdo",
   "nav.lang": "PT",
   "nav.language": "Idioma",
   "nav.services": "Serviços",
@@ -28,7 +29,7 @@
   "footer.what_we_do": "O que fazemos",
   "footer.legal": "Legal",
   "footer.contact": "Contacto",
-  "footer.talk_to_us": "Falar connosco",
+  "footer.contact_page": "Página de contacto",
   "footer.rights": "Todos os direitos reservados.",
 
   "pillar.legal": "Legal",
@@ -48,6 +49,14 @@
   "post.read_article": "Ler artigo",
   "post.continue_reading": "Continuar a ler",
   "post.author": "Autor",
+  "post.reading_time_short": "< 1 min de leitura",
+  "post.reading_time_one": "1 min de leitura",
+  "post.reading_time_many": "% min de leitura",
+
+  "pagination.label": "Paginação",
+  "pagination.newer": "Artigos mais recentes",
+  "pagination.older": "Artigos anteriores",
+  "pagination.page": "Página {page} de {pages}",
 
   "newsletter.eyebrow": "Newsletter",
   "newsletter.title": "Artigos e casos de uso, no seu email",
@@ -55,6 +64,7 @@
   "newsletter.placeholder": "o.seu@email.com",
   "newsletter.button": "Subscrever",
   "newsletter.success": "Falta um passo: confirme a subscrição no email que lhe enviámos.",
+  "newsletter.privacy": "Os seus dados são tratados nos termos da",
   "newsletter.error": "Não foi possível subscrever. Verifique o endereço e tente novamente.",
 
   "error.label": "Erro",
